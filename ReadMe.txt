@@ -1,0 +1,2 @@
+Hi, The following program "main.py" recognizes the image "arhum.jpg" in real time. using libraries "OpenCV","face_recognition" and "flask". The front end is developed from basic HTML/CSS/JS.
+If the image "arhum.jpg" is recognized, a green square frame appears around the face with a label of "arhum recognized" otherwise a red square frame appears with a label of "Unknown"
