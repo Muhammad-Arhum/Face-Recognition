@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System</title>
+</head>
+<style>
+    body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: #0a192f;
+    color: white;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(17, 17, 17, 0.9);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.5s ease;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00bcd4;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #00bcd4;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #00bcd4, #2196f3);
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: slideInRight 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: slideInRight 1.2s ease-in-out;
+}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    background: #fff;
+    color: #00bcd4;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.8);
+}
+
+/* Video Feed Section */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+#video-feed {
+    display: none;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border: 3px solid #00bcd4;
+    transform: scale(0.9);
+    animation: popIn 1s ease-in-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(0, 188, 212, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(0, 188, 212, 1); }
+    100% { box-shadow: 0 0 15px rgba(0, 188, 212, 0.7); }
+}
+
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">FaceRec</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Real-Time Face Recognition</h1>
+        <p>Identify and match faces with accuracy and speed!</p>
+        <button onclick="startVideo()">Start Recognition</button>
+    </section>
+
+    <!-- Video Feed Section -->
+    <div class="video-container">
+        <img src="/video_feed" id="video-feed">
+    </div>
+
+    <script>
+        function startVideo() {
+            document.getElementById('video-feed').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
